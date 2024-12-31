@@ -1,4 +1,5 @@
-const cacheName = "yahtzee-v2"
+const cacheName = "yahtzee";
+const version = 2;
 const assets = [
   "/",
   "/index.html",
@@ -37,17 +38,36 @@ const assets = [
 ]
 
 self.addEventListener("install", installEvent => {
-  installEvent.waitUntil(
-    caches.open(cacheName).then(cache => {
-      cache.addAll(assets).then();
-    })
-  )
+  installEvent.waitUntil((async () => {
+    const cache = await caches.open(cacheName);
+    await cache.addAll(assets.map(asset => new Request(asset, { cache: "reload" })));
+  })());
 })
 
-self.addEventListener("fetch", fetchEvent => {
-    fetchEvent.respondWith(
-      caches.match(fetchEvent.request).then(res => {
-          return res || fetch(fetchEvent.request);
-      })
-    )
-  })
+self.addEventListener('activate', (event) => {
+  event.waitUntil((async () => {
+    if ('navigationPreload' in self.registration) {
+      await self.registration.navigationPreload.enable();
+    }
+  })());
+
+  self.clients.claim().then();
+});
+
+self.addEventListener('fetch', (event) => {
+  console.log(event.request);
+  if (event.request.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        // First, try to use the navigation preload response if it's supported.
+        const preloadResponse = await event.preloadResponse;
+        if (preloadResponse) return preloadResponse;
+        return await fetch(event.request);
+      } catch (error) {
+        // Return page from cache
+        const cache = await caches.open(cacheName);
+        return await cache.match(event.request);
+      }
+    })());
+  }
+});

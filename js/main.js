@@ -1,6 +1,10 @@
 let loader;
 let zoomLevel = 1;
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('serviceWorker.js').then();
+}
+
 /**
  * When the page has loaded.
  */
