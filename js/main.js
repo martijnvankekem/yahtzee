@@ -9,6 +9,7 @@ if ('serviceWorker' in navigator) {
  * When the page has loaded.
  */
 window.onload = () => {
+    loadZoomLevel();
     registerHandlers();
     loader = new YahtzeeLoader();
     if (loader.hasCheckpoint()) {
@@ -29,10 +30,10 @@ function registerHandlers() {
         () => onRestartClick());
 
     document.getElementById("button_zoomIn").addEventListener("click",
-        () => zoomIn());
+        () => updateZoom(0.1));
 
     document.getElementById("button_zoomOut").addEventListener("click",
-        () => zoomOut());
+        () => updateZoom(-0.1));
 }
 
 /**
@@ -46,14 +47,19 @@ function onRestartClick() {
 }
 
 /**
- * Decrease the zoom level.
+ * Update the zoom level
+ * @param increment The increment.
  */
-function zoomOut() {
-    zoomLevel -= 0.1;
+function updateZoom(increment) {
+    zoomLevel += increment;
     document.body.style.zoom = zoomLevel;
+    localStorage.setItem("zoomLevel", zoomLevel);
 }
 
-function zoomIn() {
-    zoomLevel += 0.1;
+/**
+ * Load the zoom level from local storage.
+ */
+function loadZoomLevel() {
+    zoomLevel = Number(localStorage.getItem("zoomLevel") ?? "1");
     document.body.style.zoom = zoomLevel;
 }
