@@ -1,37 +1,39 @@
 body,html {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#colselector, #soundSwitch {
-    margin: 0 10px;
+* {
+    box-sizing: border-box;
 }
 
-#soundSwitch {
-    margin-bottom: 10px;
+.options {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
 }
 
-#colselector p {
-    display: inline;
-}
-
-#colselector input {
-    display: inline;
+.options .spacer {
+    min-width: 0.5rem;
 }
 
 h2 {
-    margin: 0 0 0 10px;
+    margin: 0 0 0 0.7rem;
+    font-size: 1.3em;
+    text-align: center;
 }
 
 table {
-    border-spacing: 0px;
+    border-spacing: 0;
     padding: 10px;
     max-width: 600px;
     width: 100%;
+    margin: 0 auto;
 }
 
-#topTable {
+table[data-top-table] {
     margin-bottom: 20px;
 }
 
@@ -48,23 +50,41 @@ table tr:first-child td.name {
     border-top: 1px solid #000000;
 }
 
-table tr:first-child td:nth-child(n+2) {
+table tr:first-child td:not(.name) {
     border-top: 1px solid #000000;
 }
 
-table tr td:nth-child(n+2) {
+table tr[data-value="bonus-delta"] td {
+    font-weight: bold;
+}
+
+table tr[data-value="bonus-delta"] td.positive {
+    color: green;
+}
+
+table tr[data-value="bonus-delta"] td.negative {
+    color: red;
+}
+
+table tr.no-bottom-border td:not(.name) {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+table tr.no-top-border td:not(.name) {
+    padding-top: 0;
+}
+
+table tr td:not(.name) {
     border-right: 1px solid #000000;
     border-bottom: 1px solid #000000;
-
     width: 50px;
+    text-align: center;
 }
 
-table tr td:nth-child(n+2) * {
+table tr td:not(.name) * {
     width: 100%;
-    text-align: left;
-}
-
-table tr td:nth-child(n+2) div {
+    aspect-ratio: 1.5;
     text-align: center;
 }
 
@@ -74,88 +94,29 @@ table tr td.name {
 }
 
 tr.spacer.spacer-subtotal td {
-    border-top: 3px solid #000000;
+    border-top: 2px solid #000000;
 }
 
-body:not(.animation) table tr td.entered,
-body:not(.animation) table tr td.entered * {
-    background-color: #e5e5e5;
+table tr td.filled {
+    background-color: #ececec;
+}
+
+table tr td.filled.zero {
+    background-color: #ffdbdb;
 }
 
 table tr td select {
     background: transparent !important;
     min-height: 25px;
     border-radius: 5px;
+    appearance: none;
 }
 
 table tr td input {
-    -webkit-appearance: none;
-    border-radius: 0px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    appearance: none;
+    border: 1px solid rgb(133, 133, 133);
     border-image: initial;
     background: transparent !important;
     min-height: 25px;
     border-radius: 5px;
-}
-
-body:not(.animation) table tr td.entered-zero,
-body:not(.animation) table tr td.entered-zero * {
-    background-color: rgb(255 126 116 / 30%);
-}
-
-#installApp {
-    margin-left: 10px;
-    display: none;
-}
-
-.bonusCalc {
-    text-align: center;
-    display: block;
-    font-weight: bold;
-}
-
-.bonusCalc.positive {
-    color: green;
-}
-
-.bonusCalc.negative {
-    color: red;
-}
-
-div:not(#reset):not(#colselector) button {
-    width: 30px;
-}
-
-#colselector, #colselector *, #zoom, #zoom *, #reset, #reset * {display: inline-block;}
-
-#reset, #zoom{ margin-left: 20px;}
-
-@keyframes background-rainbow {
-    0% {
-        background-color: rgb(255,0,0);
-    }
-    40% {
-        background-color: rgb(0,255,0);
-    }
-    60% {
-        background-color: rgb(0,0,255);
-    }
-    80% {
-        background-color: rgb(255,0,255);
-    }
-    100% {
-        background-color: rgb(255,255,0);
-    }
-}
-
-body {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-body.animation {
-    animation: background-rainbow 8.159s infinite;
 }

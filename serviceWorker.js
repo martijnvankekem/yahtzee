@@ -1,4 +1,4 @@
-const cacheName = "yahtzee-v1"
+const cacheName = "yahtzee-v2"
 const assets = [
   "/",
   "/index.html",
@@ -6,10 +6,9 @@ const assets = [
   "/favicon.ico",
   "/manifest.json",
   "/style.css",
-  "/app.js",
-  "/assets/celebrate.mp3",
-  "/assets/pleaseno.mp3",
-  "/assets/sadbg.jpg",
+  "/js/main.js",
+  "/js/Yahtzee.js",
+  "/js/YahtzeeLoader.js",
   "/icons/android-icon-36x36.png",
   "/icons/android-icon-48x48.png",
   "/icons/android-icon-72x72.png",
@@ -40,7 +39,7 @@ const assets = [
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
     caches.open(cacheName).then(cache => {
-      cache.addAll(assets)
+      cache.addAll(assets).then();
     })
   )
 })
