@@ -1,0 +1,161 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#colselector, #soundSwitch {
+    margin: 0 10px;
+}
+
+#soundSwitch {
+    margin-bottom: 10px;
+}
+
+#colselector p {
+    display: inline;
+}
+
+#colselector input {
+    display: inline;
+}
+
+h2 {
+    margin: 0 0 0 10px;
+}
+
+table {
+    border-spacing: 0px;
+    padding: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+
+#topTable {
+    margin-bottom: 20px;
+}
+
+table tr td {
+    padding: 5px 10px;
+    margin: 0;
+}
+
+table tr td.name {
+    border-right: 1px solid #000000;
+}
+
+table tr:first-child td.name {
+    border-top: 1px solid #000000;
+}
+
+table tr:first-child td:nth-child(n+2) {
+    border-top: 1px solid #000000;
+}
+
+table tr td:nth-child(n+2) {
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+
+    width: 50px;
+}
+
+table tr td:nth-child(n+2) * {
+    width: 100%;
+    text-align: left;
+}
+
+table tr td:nth-child(n+2) div {
+    text-align: center;
+}
+
+table tr td.name {
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+tr.spacer.spacer-subtotal td {
+    border-top: 3px solid #000000;
+}
+
+body:not(.animation) table tr td.entered,
+body:not(.animation) table tr td.entered * {
+    background-color: #e5e5e5;
+}
+
+table tr td select {
+    background: transparent !important;
+    min-height: 25px;
+    border-radius: 5px;
+}
+
+table tr td input {
+    -webkit-appearance: none;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    background: transparent !important;
+    min-height: 25px;
+    border-radius: 5px;
+}
+
+body:not(.animation) table tr td.entered-zero,
+body:not(.animation) table tr td.entered-zero * {
+    background-color: rgb(255 126 116 / 30%);
+}
+
+#installApp {
+    margin-left: 10px;
+    display: none;
+}
+
+.bonusCalc {
+    text-align: center;
+    display: block;
+    font-weight: bold;
+}
+
+.bonusCalc.positive {
+    color: green;
+}
+
+.bonusCalc.negative {
+    color: red;
+}
+
+div:not(#reset):not(#colselector) button {
+    width: 30px;
+}
+
+#colselector, #colselector *, #zoom, #zoom *, #reset, #reset * {display: inline-block;}
+
+#reset, #zoom{ margin-left: 20px;}
+
+@keyframes background-rainbow {
+    0% {
+        background-color: rgb(255,0,0);
+    }
+    40% {
+        background-color: rgb(0,255,0);
+    }
+    60% {
+        background-color: rgb(0,0,255);
+    }
+    80% {
+        background-color: rgb(255,0,255);
+    }
+    100% {
+        background-color: rgb(255,255,0);
+    }
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.animation {
+    animation: background-rainbow 8.159s infinite;
+}

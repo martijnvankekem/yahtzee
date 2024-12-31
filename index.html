@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html manifest="/manifest.json">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="charset" content="UTF-8" />
+        <title>Yahtzee</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js"></script>
+
+        <!-- ICONS -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#76c2af">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#76c2af">
+        
+    </head>
+    <body>
+        <div id="zoom">
+            <p>Zoom:</p>
+            <button onclick="minZoom();">-</button>
+            <button onclick="plusZoom();">+</button>
+        </div>
+
+        <div id="reset">
+            <button onclick="reset();">RESTART</button>
+        </div>
+
+        <div id="colselector">
+            <button onclick="addColumn();updateTotal();">+ Add column</button>
+        </div>
+
+        <div id="soundSwitch">
+            <label for="sounds">Enable special effects: </label>
+            <input type="checkbox" name="sounds" id="sounds">
+        </div>
+
+        <button id="installApp">Install</button>
+
+        <h2>Part 1</h2>
+        <table id="topTable">
+            <tr>
+                <td class="name">
+                    <div>Ones</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Twos</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Threes</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Fours</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Fives</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Sixes</div>
+                </td>
+                
+            </tr>
+
+            <tr class="spacer spacer-subtotal">
+                <td class="name">
+                    <div>Total points</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Bonus (+35 points)</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Total top half</div>
+                </td>
+                
+            </tr>
+        </table>
+
+        <!-- Onderste helft -->
+        <h2>Part 2</h2>
+        <table id="bottomTable">
+            <tr>
+                <td class="name">
+                    <div>Three of a kind</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Four of a kind</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Full house</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Small straight</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Large straight</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Yahtzee</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Chance</div>
+                </td>
+                
+            </tr>
+
+            <tr class="spacer spacer-subtotal">
+                <td class="name">
+                    <div>Total bottom half</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Total top half</div>
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td class="name">
+                    <div>Grand total</div>
+                </td>
+                
+            </tr>
+
+            <tr data-skip-iteration>
+                <td class="name">
+                    <div>Grand total all columns</div>
+                </td>
+                
+                <td >
+                    <div id="total-allrows">0</div>
+                </td>
+
+            </tr>
+
+            
+        </table>
+    </body>
+</html>
