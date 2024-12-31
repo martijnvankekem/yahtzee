@@ -23,6 +23,12 @@ function registerHandlers() {
 
     document.getElementById("button_restart").addEventListener("click",
         () => onRestartClick());
+
+    document.getElementById("button_zoomIn").addEventListener("click",
+        () => zoomIn());
+
+    document.getElementById("button_zoomOut").addEventListener("click",
+        () => zoomOut());
 }
 
 /**
@@ -38,12 +44,12 @@ function onRestartClick() {
 /**
  * Decrease the zoom level.
  */
-function minZoom() {
+function zoomOut() {
     zoomLevel -= 0.1;
     document.body.style.zoom = zoomLevel;
 }
 
-function plusZoom() {
+function zoomIn() {
     zoomLevel += 0.1;
     document.body.style.zoom = zoomLevel;
 }

@@ -15,12 +15,16 @@ body,html {
     justify-content: center;
 }
 
+.options button {
+    min-width: 1.5rem;
+}
+
 .options .spacer {
     min-width: 0.5rem;
 }
 
 h2 {
-    margin: 0 0 0 0.7rem;
+    margin: 0 0 0 0.5rem;
     font-size: 1.3em;
     text-align: center;
 }
@@ -34,7 +38,7 @@ table {
 }
 
 table[data-top-table] {
-    margin-bottom: 20px;
+    margin-bottom: 0.3rem;
 }
 
 table tr td {
