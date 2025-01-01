@@ -14,6 +14,8 @@ class Yahtzee {
      * Add an extra column.
      */
     addColumn() {
+        if (this.columns >= 3) return;
+
         this.columns++;
         this.prepareColumn(this.columns - 1);
         this.updateTotals(this.columns - 1);
