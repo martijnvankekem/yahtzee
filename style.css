@@ -97,6 +97,7 @@ table tr td:not(.name) input {
     border: none;
     outline: none;
     font-size: inherit;
+    padding: 0;
 }
 
 table tr td.name {
