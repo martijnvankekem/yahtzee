@@ -86,10 +86,17 @@ table tr td:not(.name) {
     text-align: center;
 }
 
-table tr td:not(.name) * {
+table tr[data-id] td:not(.name) {
+    padding: 0.4rem 0;
+}
+
+table tr td:not(.name) select,
+table tr td:not(.name) input {
     width: 100%;
-    aspect-ratio: 1.5;
     text-align: center;
+    border: none;
+    outline: none;
+    font-size: inherit;
 }
 
 table tr td.name {
@@ -111,16 +118,11 @@ table tr td.filled.zero {
 
 table tr td select {
     background: transparent !important;
-    min-height: 25px;
-    border-radius: 5px;
     appearance: none;
 }
 
 table tr td input {
     appearance: none;
-    border: 1px solid rgb(133, 133, 133);
     border-image: initial;
     background: transparent !important;
-    min-height: 25px;
-    border-radius: 5px;
 }
